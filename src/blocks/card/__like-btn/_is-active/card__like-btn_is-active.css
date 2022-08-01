@@ -1,0 +1,7 @@
+.card__like-btn_is-active {
+  background: transparent url(../../../../images/like_active.svg) center no-repeat;
+}
+
+.card__like-btn_is-active:hover {
+  opacity: 1;
+}

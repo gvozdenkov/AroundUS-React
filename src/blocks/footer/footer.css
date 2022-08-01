@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0 60px;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: gray;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-flow: column;
+    gap: 20px;
+  }
+}

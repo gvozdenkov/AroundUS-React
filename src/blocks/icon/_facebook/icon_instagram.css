@@ -1,0 +1,4 @@
+.icon_instagram {
+  mask-image: url(../../../images/instagram_white.svg);
+  -webkit-mask-image: url(../../../images/instagram_white.svg);
+}

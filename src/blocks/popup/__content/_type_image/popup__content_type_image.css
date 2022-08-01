@@ -1,0 +1,22 @@
+.popup__content_type_image {
+  max-width: 75vw;
+  max-height: 75vh;
+  display: flex;
+  padding: 6px;
+}
+
+@media (max-width: 768px) {
+  .popup__content_type_image {
+    max-width: 85vw;
+    max-height: 85vh;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 568px) {
+  .popup__content_type_image {
+    max-width: 90vw;
+    max-height: 90vh;
+    padding: 2px;
+  }
+}

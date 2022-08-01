@@ -1,0 +1,16 @@
+.form__button {
+  height: 50px;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  padding: 0;
+  user-select: none;
+}
+
+.form__button:hover,
+.form__button:focus {
+  background-color: rgba(0 0 0 / 0.8);
+  outline: none;
+}

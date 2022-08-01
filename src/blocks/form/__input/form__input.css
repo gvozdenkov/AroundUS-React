@@ -1,0 +1,12 @@
+.form__input{
+    padding: 0;
+    padding-bottom: 8px;
+    border: none;
+    border-bottom: 1px solid rgba(0 0 0 / 0.3);
+    transition: 0.3s ease-out;
+}
+
+.form__input:focus{
+    outline: none;
+    border-bottom-color: rgba(0 0 0 / 1);
+}

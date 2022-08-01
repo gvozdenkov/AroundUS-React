@@ -1,0 +1,12 @@
+.popup__caption {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .popup__caption {
+    font-size: 14px;
+  }
+}

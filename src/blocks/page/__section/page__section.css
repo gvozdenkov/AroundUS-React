@@ -1,0 +1,13 @@
+.page__section {
+  background-color: rgb(20 20 20);
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+  .page__section {
+    width: calc(100% - 40px);
+  }
+}

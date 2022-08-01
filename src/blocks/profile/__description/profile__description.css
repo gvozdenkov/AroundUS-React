@@ -1,0 +1,9 @@
+.profile__description {
+  font-size: 18px;
+}
+
+@media (max-width: 480px) {
+  .profile__description {
+    font-size: 14px;
+  }
+}

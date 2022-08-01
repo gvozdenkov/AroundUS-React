@@ -1,0 +1,4 @@
+.icon_facebook{
+    mask-image: url(../../../images/facebook_white.svg);
+    -webkit-mask-image: url(../../../images/facebook_white.svg);
+}

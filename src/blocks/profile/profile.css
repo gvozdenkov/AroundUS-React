@@ -1,0 +1,17 @@
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Inter, Arial, san-serif;
+  color: white;
+  padding: 36px 0 46px;
+}
+
+@media screen and (max-width: 480px) {
+  .profile {
+    padding: 40px 0 20px;
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+}
