@@ -1,6 +1,26 @@
 import React from "react";
+import api from "../utils/api";
 
 function Main(props) {
+  const [userName, setUserName] = React.useState("");
+  const [userDescription, setUserDescription] = React.useState("");
+  const [userAvatar, setUserAvatar] = React.useState();
+  const [cards, setCards] = React.useState([]);
+
+  React.useEffect(() => {
+    api.getUserInfo().then((userData) => {
+      setUserName(userData.name);
+      setUserDescription(userData.about);
+      setUserAvatar(userData.avatar);
+    });
+  }, []);
+
+  React.useEffect(() => {
+    api.getCardList().then((cardList) => {
+      setCards(cardList);
+    });
+  }, []);
+
   return (
     <>
       <main className="content">
@@ -9,16 +29,17 @@ function Main(props) {
             <div
               className="profile__image"
               onClick={props.onAvatarProfileClick}
+              style={{ backgroundImage: `url(${userAvatar})` }}
             ></div>
             <div className="profile__info">
               <div className="profile__info-row">
-                <h1 className="profile__title">Arty Gvozdenkov</h1>
+                <h1 className="profile__title">{userName}</h1>
                 <button
                   className="profile__edit-btn"
                   onClick={props.onEditProfileClick}
                 ></button>
               </div>
-              <p className="profile__description">Explorer</p>
+              <p className="profile__description">{userDescription}</p>
             </div>
           </div>
           <button
@@ -27,33 +48,25 @@ function Main(props) {
           ></button>
         </section>
         <section className="cards page__section">
-          <ul className="cards__list">{/* <!-- Cards render here --> */}</ul>
+          <ul className="cards__list">
+            {cards.map((card) => (
+              <li className="card">
+                <div className="card__image-container">
+                  <img src={card.link} alt="" className="card__image" />
+                </div>
+                <button className="card__delete-btn"></button>
+                <div className="card__description">
+                  <h2 className="card__title">{card.name}</h2>
+                  <div className="card__like-section">
+                    <span className="card__likes-count"></span>
+                    <button className="card__like-btn"></button>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
-
-      {/* Image Popup */}
-      <div className="popup popup_type_image">
-        <div className="popup__content popup__content_type_image">
-          <button className="popup__close-btn"></button>
-          <img src="" alt="popup image" className="popup__image" />
-          <p className="popup__caption">image caption</p>
-        </div>
-      </div>
-      <template className="card-template">
-        <li className="card">
-          <div className="card__image-container">
-            <img src="" alt="" className="card__image" />
-          </div>
-          <button className="card__delete-btn"></button>
-          <div className="card__description">
-            <h2 className="card__title"></h2>
-            <div className="card__like-section">
-              <span className="card__likes-count"></span>
-              <button className="card__like-btn"></button>
-            </div>
-          </div>
-        </li>
-      </template>
     </>
   );
 }

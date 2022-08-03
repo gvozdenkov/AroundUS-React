@@ -3,7 +3,9 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  background: url(../../../images/avatar_200px.jpg) center no-repeat;
+  background-image: url(../../../images/avatar_200px.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   overflow: hidden;
