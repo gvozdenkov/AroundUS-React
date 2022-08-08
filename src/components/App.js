@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
+import PopupImage from "./PopupImage";
 import PopupWithForm from "./PopupWithForm";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const [isNewCardPopupOpen, setNewCardPopupOpen] = React.useState(false);
   const [isDeleteConfirmPopupOpen, setDeleteConfirmPopupOpen] =
     React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState();
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true);
@@ -28,11 +30,16 @@ function App() {
     setDeleteConfirmPopupOpen(true);
   }
 
+  function handleCardClick(card) {
+    setSelectedCard(card);
+  }
+
   function closeAllPopups() {
     setEditProfilePopupOpen(false);
     setEditAvatarPopupOpen(false);
     setNewCardPopupOpen(false);
     setDeleteConfirmPopupOpen(false);
+    setSelectedCard(undefined);
   }
 
   return (
@@ -43,11 +50,12 @@ function App() {
         onAvatarProfileClick={handleEditAvatarClick}
         onAddCardClick={handleAddCardClick}
         onDeleteConfirmShow={handleDeleteConfirmShow}
+        onCardClick={handleCardClick}
       />
       <Footer />
 
       <PopupWithForm
-        title="Edit Profile2"
+        title="Edit Profile"
         name="edit"
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
@@ -162,6 +170,8 @@ function App() {
           Yes
         </button>
       </PopupWithForm>
+
+      <PopupImage card={selectedCard} onClose={closeAllPopups} />
     </div>
   );
 }

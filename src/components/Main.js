@@ -1,7 +1,14 @@
 import React from "react";
 import api from "../utils/api";
+import Card from "./Card";
 
-function Main(props) {
+function Main({
+  onEditProfileClick,
+  onAvatarProfileClick,
+  onAddCardClick,
+  onDeleteConfirmShow,
+  onCardClick,
+}) {
   const [userName, setUserName] = React.useState("");
   const [userDescription, setUserDescription] = React.useState("");
   const [userAvatar, setUserAvatar] = React.useState();
@@ -28,7 +35,7 @@ function Main(props) {
           <div className="profile__left">
             <div
               className="profile__image"
-              onClick={props.onAvatarProfileClick}
+              onClick={onAvatarProfileClick}
               style={{ backgroundImage: `url(${userAvatar})` }}
             ></div>
             <div className="profile__info">
@@ -36,7 +43,7 @@ function Main(props) {
                 <h1 className="profile__title">{userName}</h1>
                 <button
                   className="profile__edit-btn"
-                  onClick={props.onEditProfileClick}
+                  onClick={onEditProfileClick}
                 ></button>
               </div>
               <p className="profile__description">{userDescription}</p>
@@ -44,25 +51,13 @@ function Main(props) {
           </div>
           <button
             className="profile__add-btn"
-            onClick={props.onAddCardClick}
+            onClick={onAddCardClick}
           ></button>
         </section>
         <section className="cards page__section">
           <ul className="cards__list">
             {cards.map((card) => (
-              <li className="card">
-                <div className="card__image-container">
-                  <img src={card.link} alt="" className="card__image" />
-                </div>
-                <button className="card__delete-btn"></button>
-                <div className="card__description">
-                  <h2 className="card__title">{card.name}</h2>
-                  <div className="card__like-section">
-                    <span className="card__likes-count"></span>
-                    <button className="card__like-btn"></button>
-                  </div>
-                </div>
-              </li>
+              <Card key={card._id} card={card} onCardClick={onCardClick} />
             ))}
           </ul>
         </section>

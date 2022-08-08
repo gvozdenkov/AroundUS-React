@@ -14,7 +14,7 @@ function PopupWithForm(props) {
       setOpen(false);
       console.log(`Popup <${name}> unmount`);
     };
-  });
+  }, [props.isOpen]);
 
   return (
     <div
